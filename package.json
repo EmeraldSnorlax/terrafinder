@@ -1,0 +1,12 @@
+{
+  "name": "terrafinder",
+  "version": "1.0.0",
+  "description": "An open source map game",
+  "main": "index.js",
+  "repository": "https://gitlab.com/EmeraldSnorlax/terrafinder",
+  "author": "EmeraldSnorlax <5159138-EmeraldSnorlax@users.noreply.gitlab.com>",
+  "license": "AGPL",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
