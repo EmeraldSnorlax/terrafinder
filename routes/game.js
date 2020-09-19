@@ -2,7 +2,8 @@ const express = require('express')
 const game = express.Router()
 const utils = require('../utils')
 const fetch = require('node-fetch')
-const { randomInt } = require('../utils')
+const Map = require('../mapClass.js')
+const { v4: uuidv4 } = require('uuid');
 
 var catalogue = {
     url: 'https://api.openaerialmap.org/',
@@ -10,11 +11,17 @@ var catalogue = {
     lastRequestSuccessful: null,
     lastError: null,
     maxPage: 1 // API starts counting pages from 1...?
-
 }
 
+var mapsInPlay = []
+
 game.get('/generate', function(req, res, next) {
-    res.send(catalogue)
+    let selected = catalogue.resp.results[utils.randomInt(0, catalogue.resp.results.length)]
+    
+    let newMap = new Map(uuidv4(), selected.properties.thumbnail, 'selected.user.name', selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
+    mapsInPlay.push(newMap) // TODO: Not send all data on request
+    res.send(mapsInPlay)
+
 })
 
 
@@ -26,7 +33,7 @@ game.get('/generate', function(req, res, next) {
 */
 
 function updateCatalogueInfo() {
-    fetch(catalogue.url + 'meta?page=' + randomInt(1, catalogue.maxPage + 1))
+    fetch(catalogue.url + 'meta?page=' + utils.randomInt(1, catalogue.maxPage + 1))
         .then(resp => resp.json())
         .then(res => {
             catalogue.resp = res
