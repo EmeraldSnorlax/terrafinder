@@ -13,7 +13,6 @@ var catalogue = {
 
 }
 
-
 game.get('/generate', function(req, res, next) {
     res.send(catalogue)
 })
@@ -25,6 +24,7 @@ game.get('/generate', function(req, res, next) {
     (5 minutes = 300000ms)
     After first call, it will randomly pick a page
 */
+
 function updateCatalogueInfo() {
     fetch(catalogue.url + 'meta?page=' + randomInt(1, catalogue.maxPage + 1))
         .then(resp => resp.json())
@@ -34,9 +34,9 @@ function updateCatalogueInfo() {
             console.log(catalogue.resp.meta)
             /* Find the highest page value to select from.
             Each page serves 100 results (0 - 99)
-            Selects the last full page as the maximum page.
+            Selects the last full page subtract 40 as the maximum page. The last bunch of pages seem to be filled with garbage.
             */
-            catalogue.maxPage = Math.floor(res.meta.found / 100)
+            catalogue.maxPage = Math.floor((res.meta.found - 40) / 100)
             console.log(catalogue)
         })
         .catch(err => {
@@ -51,4 +51,4 @@ updateCatalogueInfo()
 setInterval(updateCatalogueInfo, 300000)
 
 
-module.exports = game;
+module.exports = game
