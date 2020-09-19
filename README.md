@@ -13,5 +13,5 @@ Roadmap
 ===
 
 - [x] Boilerplate
-- [>>] Game Logic
+- [x] Game Logic
 - [ ] Frontend
