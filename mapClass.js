@@ -12,11 +12,11 @@ class Map {
     }
     getScore(guess) {
         // https://en.wikipedia.org/wiki/Haversine_formula
-	let distLat = degToRad(guess[0] - this.location[0])
-        let distLon = degToRad(guess[1] - this.location[1]) 
+	let distLat = utils.degToRad(guess[0] - this.location[0])
+        let distLon = utils.degToRad(guess[1] - this.location[1]) 
         let a = 
             Math.sin(distLat/2) * Math.sin(distLat/2) +
-            Math.cos(degToRad(this.location[0])) * Math.cos(degToRad(guess[0])) * 
+            Math.cos(utils.degToRad(this.location[0])) * Math.cos(utils.degToRad(guess[0])) * 
             Math.sin(distLon/2) * Math.sin(distLon/2)
     
         let b = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) 

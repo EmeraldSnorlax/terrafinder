@@ -17,5 +17,6 @@ const earthRadius = 6371 // km
 module.exports = {
   randomNum,
   randomInt,
-  degToRad
+  degToRad, 
+  earthRadius
 }

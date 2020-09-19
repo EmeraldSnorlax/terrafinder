@@ -18,12 +18,44 @@ var mapsInPlay = []
 game.get('/generate', function(req, res, next) {
     let selected = catalogue.resp.results[utils.randomInt(0, catalogue.resp.results.length)]
     
-    let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
+    let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.uuid, selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
     mapsInPlay.push(newMap) // TODO: Not send all data on request
     res.send(mapsInPlay)
 
 })
 
+game.get('/check/:uuid', function(req, res, next) {
+    let uuid = req.params.uuid
+    let guess = [req.query.lat, req.query.lon]
+    let mapIndex = null
+    mapsInPlay.forEach(function (item, index) {
+        if (item.id === uuid) {
+            mapIndex = index
+        }
+    })
+    
+    let map = mapsInPlay[mapIndex]
+    if (!map) {
+        let reply = {
+            wasSuccessful: false,
+            comment: `The game "${uuid}" does not exist!`,
+            score: null,
+            location: null
+        }
+        res.status(404).send(reply)
+    } else {
+        console.log(map)
+        let score = map.getScore(guess)
+        let reply = {
+            wasSuccessful: true,
+            comment: 'OK',
+            score: score,
+            location: map.location
+        }
+        mapsInPlay.splice(mapIndex, 1)
+        res.status(200).send(reply)
+    }
+})
 
 /*
     Get information about the catalogue
@@ -38,13 +70,11 @@ function updateCatalogueInfo() {
         .then(res => {
             catalogue.resp = res
             catalogue.lastRequestSuccessful = true
-            console.log(catalogue.resp.meta)
             /* Find the highest page value to select from.
             Each page serves 100 results (0 - 99)
             Selects the last full page subtract 40 as the maximum page. The last bunch of pages seem to be filled with garbage.
             */
             catalogue.maxPage = Math.floor((res.meta.found - 40) / 100)
-            console.log(catalogue)
         })
         .catch(err => {
             console.log('Fetching catalogue data failed, is openaerialmap down?')            
