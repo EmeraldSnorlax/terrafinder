@@ -44,7 +44,6 @@ game.get('/check/:uuid', function(req, res, next) {
         }
         res.status(404).send(reply)
     } else {
-        console.log(map)
         let score = map.getScore(guess)
         let reply = {
             wasSuccessful: true,
