@@ -18,7 +18,7 @@ var mapsInPlay = []
 game.get('/generate', function(req, res, next) {
     let selected = catalogue.resp.results[utils.randomInt(0, catalogue.resp.results.length)]
     
-    let newMap = new Map(uuidv4(), selected.properties.thumbnail, 'selected.user.name', selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
+    let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
     mapsInPlay.push(newMap) // TODO: Not send all data on request
     res.send(mapsInPlay)
 
@@ -56,6 +56,5 @@ function updateCatalogueInfo() {
 
 updateCatalogueInfo()
 setInterval(updateCatalogueInfo, 300000)
-
 
 module.exports = game

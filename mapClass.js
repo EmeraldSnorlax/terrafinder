@@ -6,7 +6,6 @@ class Map {
         this.id = id
         this.thumbnail = thumbnail
         this.image = image
-        this.author = author
         this.provider = provider
         this.meta = meta
         this.location = location
