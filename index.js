@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 
-const port = 3000 || process.env.PORT
+const port = process.env.PORT || 3000
 
 const game = require('./routes/game')
 
