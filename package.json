@@ -7,7 +7,8 @@
   "author": "EmeraldSnorlax <5159138-EmeraldSnorlax@users.noreply.gitlab.com>",
   "license": "AGPL",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
