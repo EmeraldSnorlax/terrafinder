@@ -2,7 +2,7 @@ const utils = require('./utils')
 
 
 class Map {
-    constructor(id, thumbnail, image, author, provider, meta, location) {
+    constructor(id, thumbnail, image, provider, meta, location) {
         this.id = id
         this.thumbnail = thumbnail
         this.image = image
