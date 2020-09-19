@@ -6,6 +6,7 @@
   "repository": "https://gitlab.com/EmeraldSnorlax/terrafinder",
   "author": "EmeraldSnorlax <5159138-EmeraldSnorlax@users.noreply.gitlab.com>",
   "license": "AGPL",
+  "scripts": { "start": "node index.js" },
   "dependencies": {
     "express": "^4.17.1",
     "morgan": "^1.10.0",
