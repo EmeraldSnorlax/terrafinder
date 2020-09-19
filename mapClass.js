@@ -11,7 +11,8 @@ class Map {
         this.location = location
     }
     getScore(guess) {
-        let distLat = degToRad(guess[0] - this.location[0])
+        // https://en.wikipedia.org/wiki/Haversine_formula
+	let distLat = degToRad(guess[0] - this.location[0])
         let distLon = degToRad(guess[1] - this.location[1]) 
         let a = 
             Math.sin(distLat/2) * Math.sin(distLat/2) +
