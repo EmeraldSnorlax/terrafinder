@@ -1,6 +1,7 @@
 # terrafinder
 
 An Open Source map-based game
+Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
 
 ```
 git clone https://gitlab.com/EmeraldSnorlax/terrafinder
@@ -9,9 +10,3 @@ yarn install
 yarn start # Or just "nodemon"
 ```
 
-Roadmap
-===
-
-- [x] Boilerplate
-- [x] Game Logic
-- [~~] Frontend
