@@ -18,7 +18,7 @@ var mapsInPlay = []
 game.get('/generate', function(req, res, next) {
     let selected = catalogue.resp.results[utils.randomInt(0, catalogue.resp.results.length)]
     
-    let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.uuid, selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
+    let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.uuid, selected.provider, selected.meta_uri,  [selected.bbox[1], selected.bbox[0]])
     mapsInPlay.push(newMap) // TODO: Not send all data on request
     res.send({
         thumbnail: newMap.thumbnail,
@@ -62,8 +62,8 @@ game.get('/check/:uuid', function(req, res, next) {
 
 /*
     Get information about the catalogue
-    Call it immediately upon startup, and then every 5 minutes thereafter.
-    (5 minutes = 300000ms)
+    Call it immediately upon startup, and then every 5 seconds thereafter.
+    (5 seconds = 5000ms)
     After first call, it will randomly pick a page
 */
 
@@ -88,6 +88,6 @@ function updateCatalogueInfo() {
 }
 
 updateCatalogueInfo()
-setInterval(updateCatalogueInfo, 300000)
+setInterval(updateCatalogueInfo, 5000)
 
 module.exports = game

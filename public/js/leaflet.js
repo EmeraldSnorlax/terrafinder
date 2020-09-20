@@ -26,3 +26,4 @@ map.on('click', function(e) {
     document.getElementById('lat').value = e.latlng.lat
     document.getElementById('lng').value = e.latlng.lng
 })
+
