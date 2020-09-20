@@ -14,12 +14,12 @@ var southWest = L.latLng(-89.98155760646617, -180),
 northEast = L.latLng(89.99346179538875, 180)
 var bounds = L.latLngBounds(southWest, northEast)
 
-map.setMaxBounds(bounds);
+map.setMaxBounds(bounds)
 map.on('drag', function() {
     map.panInsideBounds(bounds, { animate: false })
 })
 
-
+var selectedLocation = L.marker([0, 0]).addTo(map)
 map.setMaxBounds(L.latLng(179, 89), L.latLng(-179, -89))
 map.on('click', function(e) {
     selectedLocation.setLatLng(e.latlng)
