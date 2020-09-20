@@ -21,6 +21,9 @@ function checkMap() {
     .then(response => response.json())
     .then(answer => {
         console.log(answer)
+        if (!answer.wasSuccessful) {
+            alert('Something went wrong! :: ' + answer.comment)
+        }
         solution = L.marker(answer.location).addTo(map).bindPopup('Actual location').openPopup()
         document.getElementById('score').innerHTML = 'Score: ' + answer.score.toFixed(1) + 'km (' + (answer.score * 0.62137119).toFixed(1) + 'miles)'
     })

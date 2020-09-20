@@ -62,8 +62,8 @@ game.get('/check/:uuid', function(req, res, next) {
 
 /*
     Get information about the catalogue
-    Call it immediately upon startup, and then every 5 seconds thereafter.
-    (5 seconds = 5000ms)
+    Call it immediately upon startup, and then every 3 seconds thereafter.
+    (3 seconds = 3000ms)
     After first call, it will randomly pick a page
 */
 
@@ -88,6 +88,6 @@ function updateCatalogueInfo() {
 }
 
 updateCatalogueInfo()
-setInterval(updateCatalogueInfo, 5000)
+setInterval(updateCatalogueInfo, 3000)
 
 module.exports = game
