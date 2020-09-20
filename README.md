@@ -14,4 +14,4 @@ Roadmap
 
 - [x] Boilerplate
 - [x] Game Logic
-- [ ] Frontend
+- [~~] Frontend
