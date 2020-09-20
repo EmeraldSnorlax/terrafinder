@@ -20,7 +20,11 @@ game.get('/generate', function(req, res, next) {
     
     let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.uuid, selected.provider, selected.meta_uri,  [selected.bbox[0], selected.bbox[2]])
     mapsInPlay.push(newMap) // TODO: Not send all data on request
-    res.send(mapsInPlay)
+    res.send({
+        thumbnail: newMap.thumbnail,
+        image: newMap.image,
+        id: newMap.id
+    })
 
 })
 

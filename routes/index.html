@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="./css/style.css"
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="./js/getMap.js"></script>
+
+    
+    <title>Terrafinder</title>
+  </head>
+  <body>
+    <div class="pure-g">
+      <div class="pure-u-1 titlebar primary">
+        <h1>Terrafinder</h1>
+        <div class="wrapper">
+          <button type="submit" class="pure-button pure-button-primary" onclick="generateMap()">Get a (new) map</button>
+        </div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div id="map" class="pure-u-1 pure-u-xl-2-3 darker">
+        <h2>Map</h2>
+        <div id="map-box" class="wrapper">
+          <img id="map-img" src="./img/earth.svg" alt="map"></img>
+        </div>
+      </div>
+      <div id="guess-box" class="pure-u-1 pure-u-xl-1-3 dark">
+        <h2>Guess</h2>
+        <br>
+        <div id="selection-map"></div>
+        <form class="pure-form">
+          <fieldset>
+              <legend>Picked Location:</legend>
+              <input id="lat" placeholder="Latitude" />
+              <input id="lng" placeholder="Longitude" />
+              <button type="submit" class="pure-button pure-button-primary">Guess</button>
+          </fieldset>
+      </form>     
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-xl-1-2 blue">
+        <h2>How to Play</h2>
+      </div>
+      <div class="pure-u-1 pure-u-xl-1-2 bluer">
+        <h2>About</h2>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/leaflet.js"></script>
+  </body>
+</html>
