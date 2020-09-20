@@ -1,6 +1,7 @@
 # terrafinder
 
 An Open Source map-based game
+
 Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
 
 ```
