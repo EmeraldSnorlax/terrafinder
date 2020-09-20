@@ -28,11 +28,14 @@ h1, h2 {
 
 .blue {
   background-color: #3498db;
+  color: #ecf0f1;
 }
 
 .bluer {
   background-color: #2980b9;
+  color: #ecf0f1;
 }
+
 p {
   font-family: 'Inter', sans-serif;
   padding: 1%;
@@ -59,17 +62,9 @@ button {
 }
 
 #selection-map { 
-  height: 500px;
+  height: 550px;
   padding: 2em;
   border-radius: 2%; 
-}
-
-form {
-  font-family: 'Inter', sans-serif;
-}
-
-legend {
-  color: #ecf0f1 !important;
 }
 
 #fullsize {
