@@ -9,6 +9,7 @@ class Map {
         this.provider = provider
         this.meta = meta
         this.location = location
+        this.expiry = new Date(Date.now() + (5 * 60 * 1000)) // Expiry date is set to 5 minutes from current time
     }
     getScore(guess) {
         // https://en.wikipedia.org/wiki/Haversine_formula

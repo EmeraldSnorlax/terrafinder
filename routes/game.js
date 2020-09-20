@@ -19,7 +19,7 @@ game.get('/generate', function(req, res, next) {
     let selected = catalogue.resp.results[utils.randomInt(0, catalogue.resp.results.length)]
     
     let newMap = new Map(uuidv4(), selected.properties.thumbnail, selected.uuid, selected.provider, selected.meta_uri,  [selected.bbox[1], selected.bbox[0]])
-    mapsInPlay.push(newMap) // TODO: Not send all data on request
+    mapsInPlay.push(newMap)
     res.send({
         thumbnail: newMap.thumbnail,
         image: newMap.image,
@@ -35,6 +35,10 @@ game.get('/check/:uuid', function(req, res, next) {
     mapsInPlay.forEach(function (item, index) {
         if (item.id === uuid) {
             mapIndex = index
+        }
+        // Now is also a good time to clean up expired games
+        if (item.expiry < Date.now()) {
+            mapsInPlay.splice(index, 1)
         }
     })
     
