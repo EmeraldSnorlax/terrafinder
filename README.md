@@ -7,6 +7,8 @@ Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
 
 Map data is courtesy of [OpenAerialMap](https://openaerialmap.org) and [OpenStreetMap](https://openstreetmap.org).
 
+The font used on the website is [Inter](https://rsms.me/inter/).
+
 Libaries used
 ---
 - [Express.js](https://expressjs.com/)
