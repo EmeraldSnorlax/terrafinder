@@ -7,6 +7,8 @@ Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
 
 Map data is courtesy of [OpenAerialMap](https://openaerialmap.org) and [OpenStreetMap](https://openstreetmap.org).
 
+Your browser is likely complaining that this page is insecure. Due to how images are fetched (from OAM contributor servers and then directly embedded), there's not much that can really be done about this. However, images are passive and can't modify the page, so there isn't really (much) to worry about.
+
 Libaries used
 ---
 - [Express.js](https://expressjs.com/)
