@@ -5,6 +5,8 @@ An open source map based game
 
 Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
 
+Map data is courtesy of [OpenAerialMap](https://openaerialmap.org) and [OpenStreetMap](https://openstreetmap.org).
+
 Libaries used
 ---
 - [Express.js](https://expressjs.com/)
