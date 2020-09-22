@@ -11,6 +11,7 @@ function generateMap() {
         document.getElementById('fullsize').innerHTML = 'Click here to download high-res TIFF. <br> WARNING: VERY LARGE, A LOT OF RAM IS NEEDED TO VIEW!'
         document.getElementById('map-id').innerHTML = 'Game ID: ' + map.id
         id = map.id
+        document.getElementById('score').innerHTML = ''
     })
 }
 
