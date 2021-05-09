@@ -1,9 +1,9 @@
 Terrafinder
 ===
 
-An open source map based game
+> Imported from GitLab. https://gitlab.com/EmeraldSnorlax/terrafinder
 
-Play at [terrafinder.snorlax.cc](https://terrafinder.snorlax.cc)
+An open source map based game
 
 Map data is courtesy of [OpenAerialMap](https://openaerialmap.org) and [OpenStreetMap](https://openstreetmap.org).
 
